@@ -1,0 +1,67 @@
+doctype html  
+html(lang='en')  
+	
+	head
+		title Register	
+
+	script(src = "https://code.jquery.com/jquery-1.11.1.js")
+
+	body
+		h1 Register
+		div.container
+		a(href = "/") Home
+
+	form(id = "register" action = "register" method="post")
+		label Email
+		br
+		input(type = "email" name = "email")
+		
+		br
+		br
+		label Password
+		br
+		input(type = "password" 
+			name = "password" 
+			id = "password"
+		)
+		
+		br
+		label Confirm your password 
+		br 
+		input(
+			type = "password"
+			name = "confirm_password"
+			id = "confirm_password"
+		)
+		img(id = "check" name ="check" src ="" style="max-height=12px; max-width:12px; margin-left: 5px")
+
+		br
+		br
+		button(type = "submit" id = "submit") Register
+
+	br
+	a(href = "/login") Login
+
+script.
+	$('#confirm_password').on('keyup', function () {
+		var pass1 = document.getElementById('password');
+		var pass2 = document.getElementById('confirm_password');
+
+		var matchColor = '#66cc66';
+		var wrongColor = '#ff6666';
+
+		var message = document.getElementById('message');
+		if (pass1.value == pass2.value) {
+			pass2.style.backgroundColor = matchColor;
+			//- $('#message').html('Matching').css('color', matchColor);
+			$('#check').attr("src",'http://www.iconsdb.com/icons/preview/green/checkmark-xxl.png')
+		} 
+		else{
+			pass2.style.backgroundColor = wrongColor;
+			//- $('#message').html('Not Matching').css('color', wrongColor);
+			$('#check').attr("src", 'https://img.clipartfest.com/ebc8e03b79ac8dd8f83fc0289c66d130_cross-clip-art-cross-clipart-png_300-300.png')
+		} 			
+	});
+
+
+

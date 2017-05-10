@@ -1,0 +1,22 @@
+doctype html  
+html(lang='en')  
+	
+	head
+		title Home
+
+	script(src = "https://code.jquery.com/jquery-1.11.1.js")
+
+	body
+		h1 Home
+		div.container
+		p Cool Pug example!
+		h1.second df
+		br
+		a(href = "/login") Login
+	
+	script.
+		console.log("foobar");
+		//- var name = prompt("Please enter your name: ");
+		console.log(name);
+		$('h1.second').replaceWith(name);
+

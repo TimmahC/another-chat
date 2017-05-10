@@ -1,0 +1,36 @@
+doctype html  
+html(lang='en')  
+	
+	head
+		title Login
+	
+	body
+		h1 Login
+		div.container
+		a(href = "/") Home
+
+	form(action = "login" method="post")
+		label Email
+		input(
+			type = "text"
+			name = "email"
+		)
+		br
+		label Password
+
+		span(style = "display:inline-block; width: 10")   
+		input(
+			type = "text"
+			name = "password"
+		)
+		
+		br
+		button( 
+			type = "submit"
+		) Login
+
+	br
+	a(href = "/register") Register
+
+
+script(src = "https://code.jquery.com/jquery-1.11.1.js")
