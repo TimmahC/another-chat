@@ -1,0 +1,22 @@
+doctype html  
+html(lang='en')  
+	
+	head
+		title Users
+	
+	body
+		h1 Show all registered people
+		div.container
+		a(href = "/") Home 
+
+		ul(class = "users")
+			each email, password in {myList}
+				li = email + ": " + password
+
+		br
+		a(href = "/users") Users
+		br
+		
+
+
+script(src = "https://code.jquery.com/jquery-1.11.1.js")

@@ -1,6 +1,6 @@
 var express = require('express'),
 	bodyParser = require('body-parser'),
-	database 		= require('./db.js');
+	database = require('./db.js');
 
 var router = express.Router();
 var db = database.getConnection();
@@ -12,12 +12,17 @@ router.use(bodyParser.urlencoded({
 
 router.get('/', function(req, res){
 	res.render('register');
-	console.log(database.getConnection())
+	
 })
 
 router.post('/', function(req, res){
 	res.send('Register POST');
-	console.log(req.body);
+	var data = req.body;
+
+	db.collection('users').save({
+		email: data.email,
+		password: data.password
+	})
 
 })
 
