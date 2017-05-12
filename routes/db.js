@@ -1,17 +1,18 @@
-var dbURL = "mongodb://localhost:27017/myproject"
+var dbURI = "mongodb://localhost:27017/myproject"
 var MongoClient = require('mongodb').MongoClient;
 
 var database,
 	isConnected = false;
 
-MongoClient.connect(dbURL, function(err, db){
+MongoClient.connect(dbURI, function(err, db){
 	if(!err){
 		console.log("Database connected")
 		isConnected = true
 		database = db
+		// console.log(db)
 	}
 	else
-		console.log(err);
+		throw (err);
 });
 
 module.exports = {

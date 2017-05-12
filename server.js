@@ -15,6 +15,11 @@ app.use('/collection', collection);
 
 app.get('/', function(req, res){
 	res.render('index')
+
+})
+
+app.get('*', function(req, res){
+	res.sendFile(__dirname + '/templates/404.html')
 })
 
 app.listen(3000, function(){

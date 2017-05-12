@@ -3,7 +3,6 @@ var express = require('express'),
 	database = require('./db.js');
 
 var router = express.Router();
-var db = database.getConnection();
 
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({
@@ -16,14 +15,20 @@ router.get('/', function(req, res){
 })
 
 router.post('/', function(req, res){
-	res.send('Register POST');
+
+	var db = database.getConnection();
+	
 	var data = req.body;
 
-	db.collection('users').save({
+	db.collection('users').insert({
 		email: data.email,
-		password: data.password
+		password: data.password,
+		date: new Date()
 	})
-
+	res.redirect('/') 
+	console.log(req.body)
 })
+
+
 
 module.exports = router;

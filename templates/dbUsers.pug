@@ -9,14 +9,18 @@ html(lang='en')
 		div.container
 		a(href = "/") Home 
 
-		ul(class = "users")
-			each email, password in {myList}
-				li = email + ": " + password
-
-		br
-		a(href = "/users") Users
-		br
+		//- ul(class = "users")
+		//- 	each email, password in #{myList}
+		//- 		li = email + ": " + password
+		
+		ul
+			for result in myList
+				li= result.email + " with " + result.password + " joined on " + result.date
 		
 
+		br
+		
+script.
+	console.log(!{JSON.stringify(myList)})
 
 script(src = "https://code.jquery.com/jquery-1.11.1.js")

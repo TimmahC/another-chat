@@ -1,5 +1,6 @@
 var express = require('express'),
-	db 		= require('./db.js');
+	database = require('./db.js');
+
 
 
 var router = express.Router();
@@ -9,10 +10,16 @@ router.get('/', function(req, res){
 })
 
 router.get('/users', function(req, res){
-	// var results = db.collection('users').find().toArray()
+	var db = database.getConnection()
+	var cursor = db.collection('users').find()
+	var results = cursor.toArray()
+	results.then(function(rs){
+		// console.log(results)
+
+		res.render("dbUsers", {myList: rs})
+	})
+	
 	// console.log(results)
-	res.render('dbUsers');
-	console.log(db);
 })
 
 router.get('/history', function(req, res){
